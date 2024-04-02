@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
 import com.bonsai_software.icebonsai.R
-import com.bonsai_software.icebonsai.presentation.models.Dessert
+import com.bonsai_software.icebonsai.presentation.models.DessertModel
 import com.bonsai_software.icebonsai.presentation.models.DessertsType
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -81,9 +81,12 @@ fun ConfirmBuyDialog(dessertsViewModel: DessertsViewModel) {
     Dialog(onDismissRequest = { dessertsViewModel.onDismissDialog() }) {
         Card {
             Column(Modifier.padding(16.dp)) {
-                Text(text = stringResource(id = R.string.dialog_title,
-                    dessertsViewModel.total.value!!
-                ))
+                Text(
+                    text = stringResource(
+                        id = R.string.dialog_title,
+                        dessertsViewModel.total.value!!
+                    )
+                )
                 Spacer(modifier = Modifier.height(16.dp))
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                     TextButton(onClick = { dessertsViewModel.onDismissDialog() }) {
@@ -109,41 +112,53 @@ fun PayButton(modifier: Modifier, total: Int, onConfirmDialog: () -> Unit) {
     }
 }
 
-fun getDessertsMenu(): List<Dessert> {
+fun getDessertsMenu(): List<DessertModel> {
     return listOf(
-        Dessert(
+        DessertModel(
             dessertName = "Cono Sencillo",
             dessertType = DessertsType.SINGLE_ICE_CREAM,
             price = 7
         ),
-        Dessert(
+        DessertModel(
             dessertName = "Vaso Sencillo",
             dessertType = DessertsType.SINGLE_CUP_ICE_CREAM,
             price = 7
         ),
-        Dessert(
+        DessertModel(
             dessertName = "Cono Doble",
             dessertType = DessertsType.DOUBLE_ICE_CREAM,
             price = 13
         ),
-        Dessert(
+        DessertModel(
             dessertName = "Vaso Doble",
             dessertType = DessertsType.DOUBLE_CUP_ICE_CREAM,
             price = 13
         ),
-        Dessert(dessertName = "Cazuelita", dessertType = DessertsType.GOBLET_ICE_CREAM, price = 16),
-        Dessert(
+        DessertModel(
+            dessertName = "Cazuelita",
+            dessertType = DessertsType.GOBLET_ICE_CREAM,
+            price = 16
+        ),
+        DessertModel(
             dessertName = "Sandwich",
             dessertType = DessertsType.SANDWICH_ICE_CREAM,
             price = 10
         ),
-        Dessert(dessertName = "Trompo", dessertType = DessertsType.VANILLA_ICE_POP, price = 10),
-        Dessert(dessertName = "Esquimal", dessertType = DessertsType.ESKIMO_ICE_POP, price = 13),
+        DessertModel(
+            dessertName = "Trompo",
+            dessertType = DessertsType.VANILLA_ICE_POP,
+            price = 10
+        ),
+        DessertModel(
+            dessertName = "Esquimal",
+            dessertType = DessertsType.ESKIMO_ICE_POP,
+            price = 13
+        ),
     )
 }
 
 @Composable
-fun ItemsForSale(desserts: List<Dessert>, dessertsViewModel: DessertsViewModel) {
+fun ItemsForSale(desserts: List<DessertModel>, dessertsViewModel: DessertsViewModel) {
     LazyVerticalGrid(columns = GridCells.Fixed(2)) {
         items(desserts) {
             DessertItem(dessert = it) { dessertsViewModel.onDessertAdded(it) }
@@ -152,7 +167,7 @@ fun ItemsForSale(desserts: List<Dessert>, dessertsViewModel: DessertsViewModel) 
 }
 
 @Composable
-fun DessertItem(dessert: Dessert, onDessertAdded: (Dessert) -> Unit) {
+fun DessertItem(dessert: DessertModel, onDessertAdded: (DessertModel) -> Unit) {
     ElevatedButton(
         onClick = { onDessertAdded(dessert) },
         Modifier
@@ -162,7 +177,11 @@ fun DessertItem(dessert: Dessert, onDessertAdded: (Dessert) -> Unit) {
         shape = CutCornerShape(topStart = 12.dp, bottomEnd = 12.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = dessert.dessertName, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
+            Text(
+                text = dessert.dessertName,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
             Text(text = "$${dessert.price}", textAlign = TextAlign.Center)
         }
     }

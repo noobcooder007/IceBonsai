@@ -11,7 +11,7 @@ enum class DessertsType {
     ESKIMO_ICE_POP
 }
 
-data class Dessert(
+data class DessertModel(
     val dessertId: Int = System.currentTimeMillis().hashCode(),
     val dessertName: String,
     val dessertType: DessertsType,

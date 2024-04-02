@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
 import com.bonsai_software.icebonsai.R
-import com.bonsai_software.icebonsai.presentation.models.Dessert
+import com.bonsai_software.icebonsai.presentation.models.DessertModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -145,9 +145,9 @@ fun Subtotal(total: Int?) {
 fun DessertCartDetailItem(
     modifier: Modifier,
     quantity: Int,
-    dessert: Dessert,
-    onDessertAdded: (Dessert) -> Unit,
-    onDessertRemoved: (Dessert) -> Unit
+    dessert: DessertModel,
+    onDessertAdded: (DessertModel) -> Unit,
+    onDessertRemoved: (DessertModel) -> Unit
 ) {
     ElevatedCard(
         modifier = modifier, shape = CutCornerShape(topStart = 12.dp, bottomEnd = 12.dp)
@@ -174,9 +174,9 @@ fun DessertCartDetailItem(
 @Composable
 fun RangeSpinner(
     quantity: Int,
-    dessert: Dessert,
-    onDessertAdded: (Dessert) -> Unit,
-    onDessertRemoved: (Dessert) -> Unit
+    dessert: DessertModel,
+    onDessertAdded: (DessertModel) -> Unit,
+    onDessertRemoved: (DessertModel) -> Unit
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,

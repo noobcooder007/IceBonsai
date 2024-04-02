@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.bonsai_software.icebonsai"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -64,13 +64,18 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     //Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.41")
-    kapt("com.google.dagger:hilt-android-compiler:2.41")
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
 
     //LiveData
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.compose.runtime:runtime-livedata:1.6.4")
     implementation("androidx.lifecycle:lifecycle-livedata-core:2.7.0")
+
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
