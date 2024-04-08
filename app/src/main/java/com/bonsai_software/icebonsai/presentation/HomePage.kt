@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Card
 import androidx.compose.material3.ElevatedButton
@@ -49,6 +51,7 @@ fun HomePage(dessertsViewModel: DessertsViewModel, navigationController: NavHost
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "Ice Bonsai") }, actions = {
             CartAction(navigationController)
+            ThreePointsMenu(navigationController)
         })
     }) { innerPadding ->
         BodyDesserts(innerPadding, dessertsViewModel)
@@ -92,6 +95,7 @@ fun ConfirmBuyDialog(dessertsViewModel: DessertsViewModel) {
                     TextButton(onClick = { dessertsViewModel.onDismissDialog() }) {
                         Text(text = stringResource(id = R.string.dialog_cancel))
                     }
+                    Spacer(modifier = Modifier.width(4.dp))
                     TextButton(onClick = { dessertsViewModel.finishBuy() }) {
                         Text(text = stringResource(id = R.string.dialog_accept))
                     }
@@ -207,5 +211,12 @@ fun CartAction(navigationController: NavHostController) {
         Icon(
             imageVector = Icons.Outlined.ShoppingCart, contentDescription = "cart"
         )
+    }
+}
+
+@Composable
+fun ThreePointsMenu(navigationController: NavHostController) {
+    IconButton(onClick = { navigationController.navigate("history") }) {
+        Icon(imageVector = Icons.Default.Menu, contentDescription = "menu")
     }
 }

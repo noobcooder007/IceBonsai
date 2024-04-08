@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.bonsai_software.icebonsai.presentation.CartPage
 import com.bonsai_software.icebonsai.presentation.DessertsViewModel
 import com.bonsai_software.icebonsai.presentation.HomePage
+import com.bonsai_software.icebonsai.presentation.ShoppingPage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +38,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("cart") {
                             CartPage(dessertsViewModel, navigationController)
+                        }
+                        composable("history") {
+                            ShoppingPage(dessertsViewModel, navigationController)
                         }
                     }
                 }

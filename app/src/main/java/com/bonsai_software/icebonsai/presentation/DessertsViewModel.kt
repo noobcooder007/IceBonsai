@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bonsai_software.icebonsai.domain.AddShoppingDetailsUseCase
 import com.bonsai_software.icebonsai.domain.AddShoppingUseCase
 import com.bonsai_software.icebonsai.domain.GetShoppingUseCase
 import com.bonsai_software.icebonsai.presentation.DessertsUiState.Success

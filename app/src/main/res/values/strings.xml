@@ -5,6 +5,7 @@
     <string name="dialog_accept">Continuar</string>
     <string name="finish_buy">Finalizar compra</string>
     <string name="cart_empty_message">Esta muy vacío aquí, añade algo al carrito</string>
+    <string name="history_empty_message">Esto muy vacío aquí, compra algo primero</string>
     <string name="go_home">Regresar</string>
     <string name="subtotal">Subtotal</string>
 </resources>
